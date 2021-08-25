@@ -36,3 +36,6 @@ $RECYCLE.BIN/
 
 # Local environment variables
 .env
+
+# Custom Metadata
+force-app/main/default/customMetadata/

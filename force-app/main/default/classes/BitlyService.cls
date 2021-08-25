@@ -1,13 +1,10 @@
-/**
- * Simple service to make http callout to
- * Bitly url shortener service.
- */
 public class BitlyService {
       
     public String shorten( String url ) {
-    	String bearerToken = 'your-bearer-token';
+        BitlyMetadata bitly = new BitlyMetadata();
+    	String bearerToken = bitly.token;
         HttpRequest req = new HttpRequest();
-        req.setEndpoint('callout:Bitly/v4/shorten');
+        req.setEndpoint('https://api-ssl.bitly.com/v4/shorten');
         req.setHeader('Accept', '*/*');
         req.setHeader('Content-Type', 'application/json');
         req.setHeader('Authorization', 'Bearer ' + bearerToken);
@@ -31,5 +28,11 @@ public class BitlyService {
     
     private class ShortenResponse {
         public String link { get;set; }
-    }   
+    }
+
+    private class BitlyMetadata {
+        Bitly_API_Token__mdt cmdt = [SELECT API_Token__c FROM Bitly_API_Token__mdt WHERE Is_Active__c = true LIMIT 1];
+
+        public String token = cmdt.API_Token__c;
+    }
 }
