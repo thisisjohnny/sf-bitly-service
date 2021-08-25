@@ -1,18 +1,22 @@
-# Salesforce DX Project: Next Steps
+# Bit.ly URL Shortening Service Apex Action
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+[Bit.ly](https://bit.ly) is a common URL shortening service to take your long, difficult to share URLs and make them easier to use. This package includes resources to provide Salesforce admins with an invokable Apex action inside of Flow to generate one or more shortened URLs via the Bit.ly API for use within the originating flow.
 
-## How Do You Plan to Deploy Your Changes?
+## What To Do
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+1. Install this package using the link below
+2. Add one or more users to the included Permission Set. This will grant access to the Apex classes and custom metadata type necessary for using this action
+3. Create a record in the Bitly API Token custom metadata type with your Bit.ly Access Token. In Salesforce, Setup -> Custom Metadata Types -> Manage Records -> New
+4. In Flow Builder, create your flow and include the Bitly Shortener Service Apex action. Pass a collection variable of type Text to the Long URLs input value, and under Advanced check the box to Manually assign variables, and create a new collection variable resource of type Text for storing your shortened URLs.
 
-## Configure Your Salesforce DX Project
+## Deploy to Your Org
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+### Disclaimer
 
-## Read All About It
+**This package is provided without warranty.**
+This software has not been fully tested nor developed with strict security and access controls in mind. It makes http callouts to the public internet. By installing this package in your org, you assume all risk of consequences and agree not to hold myself or my employer liable.
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+To deploy this package to you Salesforce environment, use the [Salesforce DX Public Deployer](https://hosted-scratch.herokuapp.com/byoo?template=https://github.com/thisisjohnny/sf-bitly-service) and choose the option best for you.
+
+----
+_Made with_ ❤️&☕️ _in Reston_
